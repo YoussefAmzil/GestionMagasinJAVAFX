@@ -6,6 +6,8 @@ import Controller.LigneCmdDaoIml;
 import Controller.ProduitDaoImplL;
 import dao.LigneCmdDao;
 import dao.ProduitDAO;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -23,6 +25,7 @@ import model.Client;
 import model.LigneCmd;
 import model.Produit;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FormVente {
@@ -32,17 +35,22 @@ public class FormVente {
     ObservableList<LigneCmd> observableTable= FXCollections.observableArrayList();
     ObservableList<Produit> pros = FXCollections.observableArrayList((new ProduitDaoImplL().findAll()));
     ObservableList<Categorie> cats = FXCollections.observableArrayList((new CategorieDaoImpl().findAll()));
+    ObservableList<Categorie> payments = FXCollections.observableArrayList();
     Alert alert = new Alert(Alert.AlertType.ERROR);
 
 
     GridPane pane = new GridPane();
     LigneCmdDao pdao=new LigneCmdDaoIml();
-    List<LigneCmd> lcmds=pdao.findAll();
+    List<LigneCmd> lcmds=new ArrayList<>();
+    Client cv=new Client();
+    List<Client> clients =new ClientDaoImpl().findAll();
 
     Button addbtn=new Button("ajouter");
     Button editbtn=new Button("modifier");
     Button deletebtn=new Button("supprimer");
     Button clear=new Button("clear");
+    Button  save= new Button("enregistrer");
+
 
     Label nomclient = new Label(" nom Client");
     TextField nomclienti = new TextField();
@@ -50,9 +58,12 @@ public class FormVente {
     TextField prenomclienti = new TextField();
     Label qte = new Label("quantite");
     TextField qtei = new TextField();
+    Label telephone=new Label("telephone");
+    TextField teleinp=new TextField();
 
     ChoiceBox<Categorie> categories = new ChoiceBox<>(cats);
     ChoiceBox<Produit> produitbox = new ChoiceBox<>(pros);
+    ChoiceBox<Categorie> paymentbox = new ChoiceBox<>(payments);
 
 
 
@@ -74,14 +85,18 @@ public class FormVente {
         deletebtn.setMinSize(100,30);
         editbtn.setMinSize(100,30);
         clear.setMinSize(100,30);
+        save.setMinSize(200,30);
+        save.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
 
-        pane.setPadding(new Insets(20));
-        pane.setHgap(15);
-        pane.setVgap(15);
+
+        pane.setPadding(new Insets(10));
+        pane.setHgap(10);
+        pane.setVgap(10);
         pane.add(nomclient, 0, 1);
         pane.add(prenomclient, 0, 3);
         pane.add(nomclienti, 1, 1);
-        pane.add(prenomclienti, 1, 3);
+        pane.add(prenomclienti, 1, 3);pane.add(telephone,0,2);
+        pane.add(teleinp,1,2);
         Label labelcat = new Label("categorie");
         Label labelPRODUIT = new Label("produit");
         pane.add(labelcat,0,4);
@@ -90,13 +105,17 @@ public class FormVente {
         pane.add(produitbox,1,5);
         pane.add(qte,0,6);
         pane.add(qtei,1,6);
-        pane.add(addbtn,0,7);
-        pane.add(editbtn,1,7);
-        pane.add(deletebtn,0,8);
-        pane.add(clear,1,8);
+        pane.add(new Label("paiment"),0,7);
+        pane.add(paymentbox,1,7);
+        pane.add(addbtn,0,8);
+        pane.add(editbtn,1,8);
+        pane.add(deletebtn,0,9);
+        pane.add(clear,1,9);
 
         initTableProduct();
         VBox view=new VBox();
+        view.setPadding(new Insets(15,0,0,5));
+        VBox.setMargin(view,new Insets(20,0,0,0));
         view.getChildren().add(tablelignecmd);
 
         HBox footer=new HBox();
@@ -109,25 +128,86 @@ public class FormVente {
         footer.setPadding(new Insets(15));
         footer.setStyle("-fx-background-color: black;");
 
+        VBox rght= new VBox();
+        VBox.setMargin(save,new Insets(0,0,0,16));
+        rght.getChildren().add(pane);
+        rght.getChildren().add(save);
+
         root.setTop(titletop);
         root.setCenter(view);
-        root.setRight(pane);
+        root.setRight(rght);
         root.setBottom(footer);
 
         //on add button
+
+        addbtn.setOnMouseClicked(ev->{
+            if(this.qtei.getText().isEmpty() || this.nomclienti.getText().isEmpty() || this.prenomclienti.getText().isEmpty() || this.categories.getValue() == null || this.produitbox.getValue()==null){
+                alert.setTitle("Error Dialog");
+                alert.setContentText("Essayer de remplir tous les champs !!");
+                alert.setHeaderText("Ooops !!!!!");
+                alert.showAndWait();
+            }else{
+                    LigneCmd lcmd=new LigneCmd(this.produitbox.getValue(),Integer.parseInt(this.qtei.getText()));
+                    this.observableTable.add(lcmd);
+            }
+        });
+        deletebtn.setOnMouseClicked(ev->{
+            deletebtn.setOnAction(event -> {
+                try{
+                    LigneCmd t=tablelignecmd.getSelectionModel().getSelectedItem();
+                    this.observableTable.remove(t);
+                }catch (Exception e){
+                    this.alert.setContentText("choisissez un element !!!");
+                    this.alert.showAndWait();
+                }
+
+            });
+        });
+        editbtn.setOnMouseClicked(ev->{
+            LigneCmd t=tablelignecmd.getSelectionModel().getSelectedItem();
+            t.setQte(Integer.parseInt(this.qtei.getText()));
+            t.setP(this.produitbox.getValue());
+            this.observableTable.set(this.observableTable.indexOf(t),t);
+        });
+        //change product list on categorie
+        categories.setOnAction(ev->{
+            System.out.println(this.categories.getValue().getLabel());
+            this.pros.setAll(new CategorieDaoImpl().findProduits(this.categories.getValue()));
+        });
+        //get client with his name
+        teleinp.setOnKeyTyped(ev->{
+            if(!this.teleinp.getText().isEmpty()){
+                for (Client i:this.clients
+                     ) {
+                    if(i.getTelephone().contains(teleinp.getText())){
+                        System.out.println("in");
+                        this.cv=i;
+                        break;
+                    }
+                }
+                this.prenomclienti.setText(cv.getPrenom());
+                this.nomclienti.setText(cv.getNom());
+            }else cv=null;
+        });
     }
-
     private void initTableProduct(){
-        TableColumn<LigneCmd, String> produitIdColon=new TableColumn<>("produit");
-        produitIdColon.setCellValueFactory(p-> p.getValue().getP().getDesign());
-        produitIdColon.setPrefWidth(50);
+        TableColumn<LigneCmd, Produit> produitIdColon=new TableColumn<>("produit");
+        produitIdColon.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getP()));
+        produitIdColon.setPrefWidth(80);
 
+        TableColumn<LigneCmd, Integer> quantite=new TableColumn<>("quantite");
+        quantite.setCellValueFactory(new PropertyValueFactory<>("qte"));
+        quantite.setPrefWidth(80);
 
-        tablelignecmd.getColumns().add(produitIdColon);
+        TableColumn<LigneCmd, Double> stotal=new TableColumn<>("sous total");
+        stotal.setCellValueFactory(new PropertyValueFactory<>("stotal"));
+        stotal.setPrefWidth(80);
+
+        tablelignecmd.getColumns().addAll(produitIdColon,quantite,stotal);
         observableTable.setAll(lcmds);
         tablelignecmd.setItems(observableTable);
-        System.out.println(lcmds.size());
     }
+
 
     public BorderPane getAll(){
         initelements();

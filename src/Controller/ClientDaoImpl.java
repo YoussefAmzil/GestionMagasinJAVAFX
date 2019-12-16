@@ -86,15 +86,15 @@ public class ClientDaoImpl implements ClientDAO {
     }
 
     @Override
-    public List<Client> findAll(String key) {
-        String sql="select *from categories WHERE nom LIKE %+'"+key+"'+%";
-        ArrayList<Client> c=new ArrayList<>();
+    public Client findAll(String key) {
+        key="%"+key+"%";
+        String sql="select *from clients WHERE nom LIKE  '"+key+"' OR  prenom LIKE  '"+key+"' OR telephone LIKE  '"+key+"'";
         try {
             rs=stm.executeQuery(sql);
             while(rs.next()) {
-                c.add(new Client(rs.getInt("id"),rs.getString("nom"),rs.getString("prenom"),rs.getString("tele"),rs.getString("city")));
+                return new Client(rs.getInt("id"),rs.getString("nom"),rs.getString("prenom"),rs.getString("telephone"),rs.getString("city"));
             }
-            return c;
+            return null;
         } catch (SQLException e) {
             e.printStackTrace();
         }

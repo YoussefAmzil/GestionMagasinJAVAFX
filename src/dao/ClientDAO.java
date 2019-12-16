@@ -10,6 +10,6 @@ public interface ClientDAO {
     public void delete(Client p);
     public void update(Client p);
     public List<Client> findAll();
-    public List<Client> findAll(String key);
+    public Client findAll(String key);
     public int getLastId();
 }

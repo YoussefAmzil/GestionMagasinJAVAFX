@@ -31,7 +31,7 @@ public class InitGui extends Application {
     @Override
     public void start(Stage window) throws Exception {
         window.setWidth(900);
-        window.setHeight(660);
+        window.setHeight(690);
 
         initElement();
         window.setScene(scene);

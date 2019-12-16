@@ -24,6 +24,10 @@ public class Client {
         this.city=city;
     }
 
+    public Client() {
+
+    }
+
 
     public int getId() {
         return id;
