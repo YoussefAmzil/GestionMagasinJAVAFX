@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7ea3c46-ee9a-4967-b2df-891bf708ec1d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ClientDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClientDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/Controller/ClientDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/Controller/ClientDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/Interfacesgui/InitGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/Interfacesgui/InitGui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/dao/ClientDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/dao/ClientDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/model/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/model/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interfacesgui/FormVente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfacesgui/FormVente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfacesgui/InitGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfacesgui/InitGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/ClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ClientDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/LigneCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/LigneCmd.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,8 +58,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Interfacesgui/FormVente.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="131" column="47" selection-start-line="131" selection-start-column="47" selection-end-line="131" selection-end-column="47" />
+            <state relative-caret-position="420">
+              <caret line="199" column="68" selection-start-line="199" selection-start-column="68" selection-end-line="199" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -87,14 +87,15 @@
         <option value="$PROJECT_DIR$/src/dao/ClientDAO.java" />
         <option value="$PROJECT_DIR$/src/Controller/ClientDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/model/Client.java" />
+        <option value="$PROJECT_DIR$/src/model/LigneCmd.java" />
         <option value="$PROJECT_DIR$/src/Interfacesgui/FormVente.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+    <option name="x" value="-10" />
+    <option name="width" value="979" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -119,6 +120,12 @@
               <item name="GestionMagasinV2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Interfacesgui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GestionMagasinV2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GestionMagasinV2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -206,18 +213,28 @@
       <updated>1576499268278</updated>
       <workItem from="1576499269705" duration="4064000" />
       <workItem from="1576511493820" duration="809000" />
-      <workItem from="1576516890210" duration="9268000" />
+      <workItem from="1576516890210" duration="9592000" />
+      <workItem from="1576528009716" duration="5000" />
+      <workItem from="1576536988959" duration="2715000" />
     </task>
+    <task id="LOCAL-00001" summary="Adding buying form">
+      <created>1576527709570</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1576527709571</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14141000" />
+    <option name="totallyTimeSpent" value="17185000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16174497" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16577181" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -226,19 +243,18 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32719547" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32719547" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.41218132" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Console" order="7" weight="0.32784638" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.31824416" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.31728044" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32784638" />
       <window_info anchor="bottom" id="Database Changes" order="12" weight="0.3286119" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32921812" />
-      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32885906" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -248,10 +264,15 @@
       <window_info anchor="right" id="Database" order="6" weight="0.3295302" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32885906" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Adding buying form" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding buying form" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/GestionMagasinV2$InitGui.ic" NAME="InitGui Coverage Results" MODIFIED="1576526472286" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -296,24 +317,6 @@
           <filtering>
             <filter text="" />
           </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Produit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="68" column="27" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
-          <folding>
-            <element signature="e#974#975#0" expanded="true" />
-            <element signature="e#999#1000#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/LigneCmd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="57" column="19" lean-forward="true" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -373,10 +376,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Produit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="66" column="13" lean-forward="true" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
+          <folding>
+            <element signature="e#974#975#0" expanded="true" />
+            <element signature="e#999#1000#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/LigneCmd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Interfacesgui/FormVente.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="131" column="47" selection-start-line="131" selection-start-column="47" selection-end-line="131" selection-end-column="47" />
+        <state relative-caret-position="420">
+          <caret line="199" column="68" selection-start-line="199" selection-start-column="68" selection-end-line="199" selection-end-column="68" />
         </state>
       </provider>
     </entry>

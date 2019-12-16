@@ -6,8 +6,10 @@ import Controller.LigneCmdDaoIml;
 import Controller.ProduitDaoImplL;
 import dao.LigneCmdDao;
 import dao.ProduitDAO;
+import javafx.beans.property.ReadOnlyDoubleWrapper;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.beans.value.ObservableDoubleValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -36,11 +38,11 @@ public class FormVente {
     ObservableList<Produit> pros = FXCollections.observableArrayList((new ProduitDaoImplL().findAll()));
     ObservableList<Categorie> cats = FXCollections.observableArrayList((new CategorieDaoImpl().findAll()));
     ObservableList<Categorie> payments = FXCollections.observableArrayList();
+    double total=0.0;
     Alert alert = new Alert(Alert.AlertType.ERROR);
 
 
     GridPane pane = new GridPane();
-    LigneCmdDao pdao=new LigneCmdDaoIml();
     List<LigneCmd> lcmds=new ArrayList<>();
     Client cv=new Client();
     List<Client> clients =new ClientDaoImpl().findAll();
@@ -60,6 +62,10 @@ public class FormVente {
     TextField qtei = new TextField();
     Label telephone=new Label("telephone");
     TextField teleinp=new TextField();
+    Label totalht=new Label("Total HT: ");
+    Label totalttc=new Label("Total TTC: ");
+    Label totalhtprice=new Label(this.total +"DH");
+    Label totalttcprice=new Label(this.total +"DH");
 
     ChoiceBox<Categorie> categories = new ChoiceBox<>(cats);
     ChoiceBox<Produit> produitbox = new ChoiceBox<>(pros);
@@ -75,6 +81,15 @@ public class FormVente {
         title.setStyle("-fx-font-size:25px;");
         title.setTextFill(Color.WHITE);
 
+        totalht.setStyle(" -fx-padding:7px;");
+        totalht.setStyle("-fx-font-size:20px;");
+        totalttc.setStyle(" -fx-padding:7px;");
+        totalttc.setStyle("-fx-font-size:20px;");
+        totalttcprice.setStyle(" -fx-padding:7px;");
+        totalttcprice.setStyle("-fx-font-size:20px;");
+        totalhtprice.setStyle(" -fx-padding:7px;");
+        totalhtprice.setStyle("-fx-font-size:20px;");
+
         HBox titletop=new HBox();
         titletop.setAlignment(Pos.CENTER);
         titletop.getChildren().add(title);
@@ -87,6 +102,7 @@ public class FormVente {
         clear.setMinSize(100,30);
         save.setMinSize(200,30);
         save.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
+
 
 
         pane.setPadding(new Insets(10));
@@ -117,6 +133,13 @@ public class FormVente {
         view.setPadding(new Insets(15,0,0,5));
         VBox.setMargin(view,new Insets(20,0,0,0));
         view.getChildren().add(tablelignecmd);
+        HBox totalbox=new HBox(6);
+        totalbox.getChildren().add(totalht);
+        totalbox.getChildren().add(totalhtprice);
+        totalbox.getChildren().add(totalttc);
+        totalbox.getChildren().add(totalttcprice);
+        view.getChildren().add(totalbox);
+
 
         HBox footer=new HBox();
         Label footertext=new Label("Created By YOUSSEF AMZIL");
@@ -149,6 +172,8 @@ public class FormVente {
             }else{
                     LigneCmd lcmd=new LigneCmd(this.produitbox.getValue(),Integer.parseInt(this.qtei.getText()));
                     this.observableTable.add(lcmd);
+                    this.total+=lcmd.getStotal();
+                    this.totalhtprice.setText(this.total +"DH");
             }
         });
         deletebtn.setOnMouseClicked(ev->{
@@ -156,6 +181,8 @@ public class FormVente {
                 try{
                     LigneCmd t=tablelignecmd.getSelectionModel().getSelectedItem();
                     this.observableTable.remove(t);
+                    this.total-=t.getStotal();
+                    this.totalhtprice.setText(this.total +"DH");
                 }catch (Exception e){
                     this.alert.setContentText("choisissez un element !!!");
                     this.alert.showAndWait();
@@ -165,9 +192,12 @@ public class FormVente {
         });
         editbtn.setOnMouseClicked(ev->{
             LigneCmd t=tablelignecmd.getSelectionModel().getSelectedItem();
+            this.total-=t.getStotal();
             t.setQte(Integer.parseInt(this.qtei.getText()));
             t.setP(this.produitbox.getValue());
+            this.total+=t.getStotal();
             this.observableTable.set(this.observableTable.indexOf(t),t);
+            this.totalhtprice.setText(String.valueOf(this.total)+"DH");
         });
         //change product list on categorie
         categories.setOnAction(ev->{
