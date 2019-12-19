@@ -28,9 +28,9 @@ public class LigneCmd {
     }
 
     public void setP(Produit p) {
-        this.stotal-=this.p.getPrix();
+        this.stotal-=this.p.getPrix()*this.qte;
         this.p = p;
-        this.stotal+=this.p.getPrix();
+        this.stotal+=this.p.getPrix()*this.qte;
     }
 
     public int getQte() {
@@ -38,7 +38,10 @@ public class LigneCmd {
     }
 
     public void setQte(int qte) {
+        this.stotal-=this.p.getPrix()*this.qte;
         this.qte = qte;
+        this.stotal+=this.p.getPrix()*this.qte;
+
     }
 
     public double getStotal() {

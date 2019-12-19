@@ -1,6 +1,8 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Vente {
@@ -8,22 +10,25 @@ public class Vente {
     private double total;
     private Client client;
     private List<LigneCmd> lcmds;
+    private String date;
 
     public Vente(int id, double total, Client client) {
         this.id = id;
         this.total = total;
         this.client = client;
+        this.date= String.valueOf(LocalDate.now());
     }
 
     public Vente() {
         this.lcmds=new ArrayList<>();
     }
 
-    public Vente(int id, double total, Client client, List<LigneCmd> cmd) {
+    public Vente(int id, double total, Client client, List<LigneCmd> cmd,String date) {
         this.id = id;
         this.total = total;
         this.client = client;
         this.lcmds=cmd;
+        this.date=date;
     }
 
 

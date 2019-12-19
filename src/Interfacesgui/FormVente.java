@@ -164,12 +164,22 @@ public class FormVente {
         //on add button
 
         addbtn.setOnMouseClicked(ev->{
-            if(this.qtei.getText().isEmpty() || this.nomclienti.getText().isEmpty() || this.prenomclienti.getText().isEmpty() || this.categories.getValue() == null || this.produitbox.getValue()==null){
+            if(this.qtei.getText().isEmpty() || this.nomclienti.getText().isEmpty() || this.prenomclienti.getText().isEmpty() || this.produitbox.getValue()==null){
                 alert.setTitle("Error Dialog");
                 alert.setContentText("Essayer de remplir tous les champs !!");
                 alert.setHeaderText("Ooops !!!!!");
                 alert.showAndWait();
             }else{
+                    for(LigneCmd cc:this.observableTable){
+                        if (cc.getP().getId()==this.produitbox.getValue().getId()){
+                            this.total-=cc.getP().getPrix()*cc.getQte();
+                            cc.setQte(Integer.parseInt(this.qtei.getText()));
+                            this.total+=cc.getP().getPrix()*cc.getQte();
+                            this.observableTable.set(this.observableTable.indexOf(cc),cc);
+                            this.totalhtprice.setText(this.total +"DH");
+                            return;
+                        }
+                    }
                     LigneCmd lcmd=new LigneCmd(this.produitbox.getValue(),Integer.parseInt(this.qtei.getText()));
                     this.observableTable.add(lcmd);
                     this.total+=lcmd.getStotal();
@@ -237,7 +247,6 @@ public class FormVente {
         observableTable.setAll(lcmds);
         tablelignecmd.setItems(observableTable);
     }
-
 
     public BorderPane getAll(){
         initelements();

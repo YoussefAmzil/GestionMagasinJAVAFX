@@ -10,13 +10,16 @@ import model.LigneCmd;
 import model.Produit;
 import model.Vente;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class Main {
 
 	public static void main(String[] args) {
 		//VenteDao v=new VenteDaoImp();
-		Vente n= new Vente();
-		LigneCmd lcmd=new LigneCmd(new ProduitDaoImplL().find(3),4);
+		//Vente n= new Vente();
 
+		System.out.println(String.valueOf(LocalDate.now()));
 
 	}
 
