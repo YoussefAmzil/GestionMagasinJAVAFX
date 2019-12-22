@@ -242,7 +242,6 @@ public class FormVente {
                 v=new VenteDaoImp().create(v);
                 new PaymentDaoImp().create(pa);
             }
-
         });
     }
     private void initTableProduct(){

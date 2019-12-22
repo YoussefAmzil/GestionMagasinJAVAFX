@@ -32,7 +32,7 @@ public class VenteDaoImp implements VenteDao {
         try {
             rs=stm.executeQuery(sql);
             if(rs.next()) {
-                //return new Vente(rs.getInt("id"), rs.getDouble("total"), (new ClientDaoImpl().find(rs.getInt("client_id"))),new LigneCmdDaoIml().find(id));
+                return new Vente(rs.getInt("id"), rs.getDouble("total"), (new ClientDaoImpl().find(rs.getInt("client_id"))),new LigneCmdDaoIml().findAll(id),rs.getString("date"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -85,7 +85,7 @@ public class VenteDaoImp implements VenteDao {
             Vente f= new Vente();
             while(rs.next()) {
                 f.setId(rs.getInt("id"));
-                c.add(new Vente(rs.getInt("id"),rs.getDouble("total"),new ClientDaoImpl().find(rs.getInt("client_id")),(new LigneCmdDaoIml()).findAll(f),rs.getString("date")));
+                c.add(new Vente(rs.getInt("id"),rs.getDouble("total"),new ClientDaoImpl().find(rs.getInt("client_id")),(new LigneCmdDaoIml()).findAll((rs.getInt("id"))),rs.getString("date")));
             }
             return c;
         } catch (SQLException e) {

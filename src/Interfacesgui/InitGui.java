@@ -15,6 +15,7 @@ public class InitGui extends Application {
             FormCategorie categorie = new FormCategorie();
             FormClient client = new FormClient();
             FormVente vente=new FormVente();
+            FormPayment paym=new FormPayment();
             Tab protab=new Tab("Gestion de produit",produits.getAll());
             protab.setClosable(false);
             Tab cattab=new Tab("Gestion de categorie",categorie.getAll());
@@ -24,7 +25,9 @@ public class InitGui extends Application {
             scene=new Scene(tabs);
             Tab ventetab=new Tab("Gestion de vente",vente.getAll());
             ventetab.setClosable(false);
-            tabs.getTabs().addAll(protab,cattab,clienttab,ventetab);
+            Tab paymenttab=new Tab("Gestion de payment",paym.getAll());
+            paymenttab.setClosable(false);
+            tabs.getTabs().addAll(protab,cattab,clienttab,ventetab,paymenttab);
         }
     @Override
     public void start(Stage window) throws Exception {

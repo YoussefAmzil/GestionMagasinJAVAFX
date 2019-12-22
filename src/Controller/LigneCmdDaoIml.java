@@ -84,13 +84,13 @@ public class LigneCmdDaoIml implements LigneCmdDao {
     }
 
     @Override
-    public List<LigneCmd> findAll(Vente v) {
+    public List<LigneCmd> findAll(int v) {
         ArrayList<LigneCmd> lcmds=new ArrayList<>();
-        String sql="select *from lcmds where vente_id="+v.getId();
+        String sql="select *from lcmds where vente_id="+v;
         try {
             rs=stm.executeQuery(sql);
             while(rs.next()) {
-                lcmds.add(new LigneCmd(rs.getInt("id"),new ProduitDaoImplL().find(rs.getInt("produit_id")),rs.getInt("qte"),rs.getDouble("stotal"),new VenteDaoImp().find(v.getId())));
+                lcmds.add(new LigneCmd(rs.getInt("id"),new ProduitDaoImplL().find(rs.getInt("produit_id")),rs.getInt("qte"),rs.getDouble("stotal"),new VenteDaoImp().find(v)));
             }
             return lcmds;
         } catch (SQLException e) {
