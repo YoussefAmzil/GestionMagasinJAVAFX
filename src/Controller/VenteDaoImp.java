@@ -46,9 +46,8 @@ public class VenteDaoImp implements VenteDao {
                 .mapToDouble(x -> x.getStotal())
                 .sum();
         LigneCmdDao cmd=new LigneCmdDaoIml();
-        String sql="insert into ventes(client_id,total) values('"+v.getClient().getId()+"','"+total+"')";
+        String sql="insert into ventes(client_id,total,date) values('"+v.getClient().getId()+"','"+total+"','"+v.getDate()+"')";
         try {
-            System.out.println("error");
              if(!stm.execute(sql)){
                  v.setId(this.getLastId());
                  for (LigneCmd l: v.getLcmds()) {

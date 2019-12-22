@@ -1,15 +1,7 @@
 package Interfacesgui;
 
-import Controller.CategorieDaoImpl;
-import Controller.ClientDaoImpl;
-import Controller.LigneCmdDaoIml;
-import Controller.ProduitDaoImplL;
-import dao.LigneCmdDao;
-import dao.ProduitDAO;
-import javafx.beans.property.ReadOnlyDoubleWrapper;
+import Controller.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.beans.value.ObservableDoubleValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -21,14 +13,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.util.Callback;
-import model.Categorie;
-import model.Client;
-import model.LigneCmd;
-import model.Produit;
+import model.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class FormVente {
     private BorderPane root=new BorderPane();
@@ -37,7 +26,7 @@ public class FormVente {
     ObservableList<LigneCmd> observableTable= FXCollections.observableArrayList();
     ObservableList<Produit> pros = FXCollections.observableArrayList((new ProduitDaoImplL().findAll()));
     ObservableList<Categorie> cats = FXCollections.observableArrayList((new CategorieDaoImpl().findAll()));
-    ObservableList<Categorie> payments = FXCollections.observableArrayList();
+    ObservableList<PaymentT> payments = FXCollections.observableArrayList(PaymentT.values());
     double total=0.0;
     Alert alert = new Alert(Alert.AlertType.ERROR);
 
@@ -66,10 +55,11 @@ public class FormVente {
     Label totalttc=new Label("Total TTC: ");
     Label totalhtprice=new Label(this.total +"DH");
     Label totalttcprice=new Label(this.total +"DH");
+    TextField paymentamount=new TextField();
 
     ChoiceBox<Categorie> categories = new ChoiceBox<>(cats);
     ChoiceBox<Produit> produitbox = new ChoiceBox<>(pros);
-    ChoiceBox<Categorie> paymentbox = new ChoiceBox<>(payments);
+    ChoiceBox<PaymentT> paymentbox = new ChoiceBox<>(payments);
 
 
 
@@ -123,10 +113,12 @@ public class FormVente {
         pane.add(qtei,1,6);
         pane.add(new Label("paiment"),0,7);
         pane.add(paymentbox,1,7);
-        pane.add(addbtn,0,8);
-        pane.add(editbtn,1,8);
-        pane.add(deletebtn,0,9);
-        pane.add(clear,1,9);
+        pane.add(new Label("montant"),0,8);
+        pane.add(paymentamount,1,8);
+        pane.add(addbtn,0,9);
+        pane.add(editbtn,1,9);
+        pane.add(deletebtn,0,10);
+        pane.add(clear,1,10);
 
         initTableProduct();
         VBox view=new VBox();
@@ -170,18 +162,20 @@ public class FormVente {
                 alert.setHeaderText("Ooops !!!!!");
                 alert.showAndWait();
             }else{
-                    for(LigneCmd cc:this.observableTable){
+                    for(LigneCmd cc:this.lcmds){
                         if (cc.getP().getId()==this.produitbox.getValue().getId()){
                             this.total-=cc.getP().getPrix()*cc.getQte();
                             cc.setQte(Integer.parseInt(this.qtei.getText()));
                             this.total+=cc.getP().getPrix()*cc.getQte();
-                            this.observableTable.set(this.observableTable.indexOf(cc),cc);
+                            this.lcmds.set(this.lcmds.indexOf(cc),cc);
+                            this.observableTable.setAll(lcmds);
                             this.totalhtprice.setText(this.total +"DH");
                             return;
                         }
                     }
                     LigneCmd lcmd=new LigneCmd(this.produitbox.getValue(),Integer.parseInt(this.qtei.getText()));
-                    this.observableTable.add(lcmd);
+                    this.lcmds.add(lcmd);
+                    this.observableTable.setAll(lcmds);
                     this.total+=lcmd.getStotal();
                     this.totalhtprice.setText(this.total +"DH");
             }
@@ -190,7 +184,8 @@ public class FormVente {
             deletebtn.setOnAction(event -> {
                 try{
                     LigneCmd t=tablelignecmd.getSelectionModel().getSelectedItem();
-                    this.observableTable.remove(t);
+                    this.lcmds.remove(t);
+                    this.observableTable.setAll(lcmds);
                     this.total-=t.getStotal();
                     this.totalhtprice.setText(this.total +"DH");
                 }catch (Exception e){
@@ -206,7 +201,8 @@ public class FormVente {
             t.setQte(Integer.parseInt(this.qtei.getText()));
             t.setP(this.produitbox.getValue());
             this.total+=t.getStotal();
-            this.observableTable.set(this.observableTable.indexOf(t),t);
+            this.lcmds.set(this.lcmds.indexOf(t),t);
+            this.observableTable.setAll(lcmds);
             this.totalhtprice.setText(String.valueOf(this.total)+"DH");
         });
         //change product list on categorie
@@ -228,6 +224,25 @@ public class FormVente {
                 this.prenomclienti.setText(cv.getPrenom());
                 this.nomclienti.setText(cv.getNom());
             }else cv=null;
+        });
+        save.setOnMouseClicked(ev->{
+            if(this.paymentamount.getText().isEmpty() || this.paymentbox.getValue()==null || Double.parseDouble(this.paymentamount.getText())>this.total){
+                alert.setTitle("Error Dialog");
+                alert.setContentText("Essayer de remplir les champs de paiment!!");
+                alert.setHeaderText("Ooops !!!!!");
+                alert.showAndWait();
+            }else{
+                Vente v=new Vente();
+                Payment pa=new Payment();
+                v.setLcmds(lcmds);
+                v.setClient(cv);
+                pa.setVente(v);
+                pa.setType(this.paymentbox.getValue());
+                pa.setMontant(Double.parseDouble(this.paymentamount.getText()));
+                v=new VenteDaoImp().create(v);
+                new PaymentDaoImp().create(pa);
+            }
+
         });
     }
     private void initTableProduct(){

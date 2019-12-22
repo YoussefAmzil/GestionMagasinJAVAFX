@@ -15,7 +15,7 @@ public class DataConnection {
 	public DataConnection() {
 		try {
 			this.cnx=DriverManager.getConnection(this.url+this.dbname, this.user, this.password);
-			System.out.println("Connected !!!!");
+			//System.out.println("Connected !!!!");
 		} catch (SQLException e) {
 			
 			System.out.println(e.getMessage());

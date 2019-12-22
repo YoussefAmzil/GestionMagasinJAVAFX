@@ -18,9 +18,15 @@ public class Vente {
         this.client = client;
         this.date= String.valueOf(LocalDate.now());
     }
+    public Vente(Client client,List<LigneCmd> cmd) {
+        this.id = id;
+        this.total = total;
+        this.client = client;
+        this.date= String.valueOf(LocalDate.now());
+    }
 
     public Vente() {
-        this.lcmds=new ArrayList<>();
+        this.lcmds=new ArrayList<>();this.date= String.valueOf(LocalDate.now());
     }
 
     public Vente(int id, double total, Client client, List<LigneCmd> cmd,String date) {
@@ -31,7 +37,13 @@ public class Vente {
         this.date=date;
     }
 
+    public String getDate() {
+        return date;
+    }
 
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public int getId() {
         return id;
