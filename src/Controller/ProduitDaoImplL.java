@@ -1,6 +1,8 @@
 package Controller;
 
+import dao.CategorieDAO;
 import dao.ProduitDAO;
+import dao.VenteDao;
 import db.DataConnection;
 import model.Categorie;
 import model.Produit;
@@ -12,17 +14,19 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProduitDaoImplL implements ProduitDAO {
-    Connection cnx=(new DataConnection()).getConnection();
+public class ProduitDaoImplL  extends AllDaoImpl implements ProduitDAO {
+    Connection cnx;
     Statement stm=null;
     ResultSet rs=null;
 
+    CategorieDAO daocategory=AllDaoImpl.getDaocategory();
+
     public ProduitDaoImplL() {
         try {
-            this.stm=this.cnx.createStatement();
-            this.rs=null;
+            cnx = DataConnection.getInstance().getConnection();
+            this.stm = this.cnx.createStatement();
+            this.rs = null;
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -33,7 +37,7 @@ public class ProduitDaoImplL implements ProduitDAO {
         try {
             rs=stm.executeQuery(sql);
             if(rs.next()) {
-                Categorie c=(new CategorieDaoImpl()).find(rs.getInt("categorie_id"));
+                Categorie c=daocategory.find(rs.getInt("categorie_id"));
                 return new Produit(rs.getInt("id"),rs.getString("design"),rs.getDouble("prix"),c);
             }
         } catch (SQLException e) {
@@ -84,7 +88,7 @@ public class ProduitDaoImplL implements ProduitDAO {
         try {
             rs=stm.executeQuery(sql);
             while(rs.next()) {
-                Categorie c=(new CategorieDaoImpl()).find(rs.getInt("categorie_id"));
+                Categorie c=daocategory.find(rs.getInt("categorie_id"));
                 p.add(new Produit(rs.getInt("id"),rs.getString("design"),rs.getDouble("prix"),c));
             }
             return p;
@@ -101,7 +105,7 @@ public class ProduitDaoImplL implements ProduitDAO {
         try {
             rs=stm.executeQuery(sql);
             while(rs.next()) {
-                Categorie c=(new CategorieDaoImpl()).find(rs.getInt("categorie_id"));
+                Categorie c=daocategory.find(rs.getInt("categorie_id"));
                 p.add(new Produit(rs.getInt("id"),rs.getString("design"),rs.getDouble("prix"),c));
             }
             return p;

@@ -1,5 +1,6 @@
 package dao;
 
+import model.LigneCmd;
 import model.Vente;
 
 import java.util.List;
@@ -11,4 +12,5 @@ public interface VenteDao {
     public void update(Vente p);
     public List<Vente> findAll();
     public int getLastId();
+    List<LigneCmd> findAll(int v);
 }

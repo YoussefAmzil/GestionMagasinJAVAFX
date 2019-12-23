@@ -11,6 +11,5 @@ public interface LigneCmdDao {
     public void delete(LigneCmd p);
     public void update(LigneCmd p);
     public List<LigneCmd> findAll();
-    public List<LigneCmd> findAll(int key);
     public int getLastId();
 }

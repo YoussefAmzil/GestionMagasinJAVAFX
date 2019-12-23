@@ -12,14 +12,17 @@ import model.Vente;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 public class Main {
 
 	public static void main(String[] args) {
 		//VenteDao v=new VenteDaoImp();
 		//Vente n= new Vente();
+		Vente g=new  VenteDaoImp().find(35);
+		System.out.println(g.getTotal());
+		System.out.println(g.getLcmds().size());
 
-		System.out.println(String.valueOf(LocalDate.now()));
 
 	}
 

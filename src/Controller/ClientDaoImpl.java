@@ -1,6 +1,7 @@
 package Controller;
 
 import dao.ClientDAO;
+import db.DataConnection;
 import model.Client;
 
 import java.sql.Connection;
@@ -10,15 +11,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientDaoImpl implements ClientDAO {
-    Connection cnx=new db.DataConnection().getConnection();
+public class ClientDaoImpl extends AllDaoImpl implements ClientDAO {
+    Connection cnx=null;
     Statement stm=null;
     ResultSet rs=null;
 
     public ClientDaoImpl() {
         try {
-            this.stm=this.cnx.createStatement();
-            this.rs=null;
+            cnx = DataConnection.getInstance().getConnection();
+            this.stm = this.cnx.createStatement();
+            this.rs = null;
         } catch (SQLException e) {
             e.printStackTrace();
         }

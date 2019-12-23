@@ -7,6 +7,13 @@ public class LigneCmd {
     private int qte;
     private double stotal;
 
+    public LigneCmd(int id, Produit produit_id, int qte, double stotal) {
+        this.id=id;
+        this.p=produit_id;
+        this.qte=qte;
+        this.stotal=stotal;
+    }
+
     public int getId() {
         return id;
     }

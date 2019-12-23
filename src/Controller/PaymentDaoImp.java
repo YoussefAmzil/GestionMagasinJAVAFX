@@ -1,6 +1,9 @@
 package Controller;
 
 import dao.PaymentDAO;
+import dao.ProduitDAO;
+import dao.VenteDao;
+import db.DataConnection;
 import model.Payment;
 import model.PaymentT;
 import model.Vente;
@@ -13,17 +16,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PaymentDaoImp implements PaymentDAO {
-    Connection cnx=(new db.DataConnection()).getConnection();
+    Connection cnx;
     Statement stm=null;
     ResultSet rs=null;
 
-    public PaymentDaoImp( ) {
+    VenteDao daovente=AllDaoImpl.getvente();
 
+    public PaymentDaoImp( ) {
         try {
-            this.stm=this.cnx.createStatement();
-            this.rs=null;
+            cnx = DataConnection.getInstance().getConnection();
+            this.stm = this.cnx.createStatement();
+            this.rs = null;
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -37,7 +41,7 @@ public class PaymentDaoImp implements PaymentDAO {
         try {
             rs = stm.executeQuery(sql);
             while (rs.next()) {
-                p.add(new Payment(rs.getInt("id"),new VenteDaoImp().find(rs.getInt("id_vente")),rs.getDouble("montant"), rs.getString("date"), PaymentT.valueOf(rs.getString("type"))));
+                p.add(new Payment(rs.getInt("id"),daovente.find(rs.getInt("id")),rs.getDouble("montant"), rs.getString("date"), PaymentT.valueOf(rs.getString("type"))));
             }
             return p;
         } catch (SQLException e) {

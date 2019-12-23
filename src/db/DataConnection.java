@@ -6,23 +6,34 @@ import java.sql.SQLException;
 
 public class DataConnection {
 
-	Connection cnx=null;
 	String user="root";
 	String dbname="magasinjava";
 	String password="";
 	String url="jdbc:mysql://localhost:3306/";
-	
-	public DataConnection() {
+	 static DataConnection instance;
+	 Connection connection;
+
+
+	private DataConnection() throws SQLException {
 		try {
-			this.cnx=DriverManager.getConnection(this.url+this.dbname, this.user, this.password);
-			//System.out.println("Connected !!!!");
-		} catch (SQLException e) {
-			
-			System.out.println(e.getMessage());
+			Class.forName("com.mysql.jdbc.Driver");
+			this.connection = DriverManager.getConnection(url+dbname, user, password);
+		} catch (ClassNotFoundException ex) {
+			System.out.println("Database Connection Creation Failed : " + ex.getMessage());
 		}
 	}
-	
+
 	public Connection getConnection() {
-		return this.cnx;
+		return connection;
+	}
+
+	public static DataConnection getInstance() throws SQLException {
+		if (instance == null) {
+			instance = new DataConnection();
+		} else if (instance.getConnection().isClosed()) {
+			instance = new DataConnection();
+		}
+
+		return instance;
 	}
 }

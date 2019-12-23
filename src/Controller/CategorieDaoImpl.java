@@ -13,14 +13,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategorieDaoImpl implements CategorieDAO {
-    Connection cnx=(new DataConnection()).getConnection();
-    Statement stm=null;
-    ResultSet rs=null;
+    Connection cnx;
+    Statement stm = null;
+    ResultSet rs = null;
 
     public CategorieDaoImpl() {
         try {
-            this.stm=this.cnx.createStatement();
-            this.rs=null;
+            cnx = DataConnection.getInstance().getConnection();
+            this.stm = this.cnx.createStatement();
+            this.rs = null;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -28,11 +29,11 @@ public class CategorieDaoImpl implements CategorieDAO {
 
     @Override
     public Categorie find(int id) {
-        String sql="select *from categories where id="+id;
+        String sql = "select *from categories where id=" + id;
         try {
-            rs=stm.executeQuery(sql);
-            if(rs.next()) {
-                return new Categorie(rs.getInt("id"),rs.getString("label"));
+            rs = stm.executeQuery(sql);
+            if (rs.next()) {
+                return new Categorie(rs.getInt("id"), rs.getString("label"));
             }
         } catch (SQLException e) {
             // TODO: handle exception
@@ -44,9 +45,9 @@ public class CategorieDaoImpl implements CategorieDAO {
 
     @Override
     public void create(Categorie c) {
-        String sql="insert into categories(label) values('"+c.getLabel()+"')";
+        String sql = "insert into categories(label) values('" + c.getLabel() + "')";
         try {
-            if(stm.execute(sql))
+            if (stm.execute(sql))
                 System.out.println("categories created");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -56,9 +57,9 @@ public class CategorieDaoImpl implements CategorieDAO {
 
     @Override
     public void delete(Categorie c) {
-        String sql="delete from categories where id="+c.getId();
+        String sql = "delete from categories where id=" + c.getId();
         try {
-            if(stm.execute(sql)) System.out.println("categorie deleted");
+            if (stm.execute(sql)) System.out.println("categorie deleted");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -66,7 +67,7 @@ public class CategorieDaoImpl implements CategorieDAO {
 
     @Override
     public void update(Categorie p) {
-        String sql="update categories set label ='"+p.getLabel()+"' where id='"+p.getId()+"' ";
+        String sql = "update categories set label ='" + p.getLabel() + "' where id='" + p.getId() + "' ";
         try {
             if (stm.execute(sql))
                 System.out.println("produit updated");
@@ -77,12 +78,12 @@ public class CategorieDaoImpl implements CategorieDAO {
 
     @Override
     public List<Categorie> findAll() {
-        String sql="select *from categories";
-        ArrayList<Categorie> c= new ArrayList<>();
+        String sql = "select *from categories";
+        ArrayList<Categorie> c = new ArrayList<>();
         try {
-            rs=stm.executeQuery(sql);
-            while(rs.next()) {
-                c.add(new Categorie(rs.getInt("id"),rs.getString("label")));
+            rs = stm.executeQuery(sql);
+            while (rs.next()) {
+                c.add(new Categorie(rs.getInt("id"), rs.getString("label")));
             }
             return c;
         } catch (SQLException e) {
@@ -93,12 +94,12 @@ public class CategorieDaoImpl implements CategorieDAO {
 
     @Override
     public List<Produit> findProduits(Categorie c) {
-        String sql="select *from produits where categorie_id="+c.getId();
-        List<Produit> p= new ArrayList<>();
+        String sql = "select *from produits where categorie_id=" + c.getId();
+        List<Produit> p = new ArrayList<>();
         try {
-            rs=stm.executeQuery(sql);
-            while(rs.next()) {
-                p.add(new Produit(rs.getString("design"),rs.getDouble("prix"),c));
+            rs = stm.executeQuery(sql);
+            while (rs.next()) {
+                p.add(new Produit(rs.getString("design"), rs.getDouble("prix"), c));
             }
             return p;
         } catch (SQLException e) {
@@ -107,13 +108,14 @@ public class CategorieDaoImpl implements CategorieDAO {
         }
         return null;
     }
+
     @Override
     public int getLastId() {
-        String sql="select MAX(id) from categories";
+        String sql = "select MAX(id) from categories";
         try {
-            rs=stm.executeQuery(sql);
-            if(rs.next()) {
-                return rs.getInt(1)+1;
+            rs = stm.executeQuery(sql);
+            if (rs.next()) {
+                return rs.getInt(1) + 1;
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -122,3 +124,4 @@ public class CategorieDaoImpl implements CategorieDAO {
 
     }
 }
+

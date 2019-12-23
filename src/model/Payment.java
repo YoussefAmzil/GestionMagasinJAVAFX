@@ -17,7 +17,7 @@ public class Payment {
         this.type = type;
     }
 
-    public Payment(Vente id_vente,double montant, String date, PaymentT type) {
+    public Payment(Vente id_vente,double montant,PaymentT type) {
         this.vente=id_vente;
         this.montant=montant;
         this.date=String.valueOf(LocalDate.now());

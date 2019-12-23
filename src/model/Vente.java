@@ -29,7 +29,7 @@ public class Vente {
         this.lcmds=new ArrayList<>();this.date= String.valueOf(LocalDate.now());
     }
 
-    public Vente(int id, double total, Client client, List<LigneCmd> cmd,String date) {
+    public Vente(int id, double total, Client client,String date,List<LigneCmd> cmd) {
         this.id = id;
         this.total = total;
         this.client = client;

@@ -1,6 +1,9 @@
 package Controller;
 
 import dao.LigneCmdDao;
+import dao.ProduitDAO;
+import dao.VenteDao;
+import db.DataConnection;
 import model.LigneCmd;
 import model.Vente;
 
@@ -12,14 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LigneCmdDaoIml implements LigneCmdDao {
-    Connection cnx=(new db.DataConnection()).getConnection();
+    Connection cnx;
     Statement stm=null;
     ResultSet rs=null;
 
+
     public LigneCmdDaoIml() {
         try {
-            this.stm=this.cnx.createStatement();
-            this.rs=null;
+            cnx = DataConnection.getInstance().getConnection();
+            this.stm = this.cnx.createStatement();
+            this.rs = null;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -27,11 +32,12 @@ public class LigneCmdDaoIml implements LigneCmdDao {
 
     @Override
     public LigneCmd find(int id) {
+
         String sql="select *from lcmds where id="+id;
         try {
             rs=stm.executeQuery(sql);
             if(rs.next()) {
-                return new LigneCmd(rs.getInt("id"),new ProduitDaoImplL().find(rs.getInt("produit_id")),rs.getInt("qte"),rs.getDouble("stotal"),new VenteDaoImp().find(rs.getInt("vente_id")));
+             //   return new LigneCmd(rs.getInt("id"),daoproduit.find(rs.getInt("produit_id")),rs.getInt("qte"),rs.getDouble("stotal"),daovente.find(rs.getInt("vente_id")));
             }
         } catch (SQLException e) {
             // TODO: handle exception
@@ -74,25 +80,9 @@ public class LigneCmdDaoIml implements LigneCmdDao {
         try {
             rs=stm.executeQuery(sql);
             while(rs.next()) {
-                c.add(new LigneCmd(rs.getInt("id"), (new ProduitDaoImplL()).find(rs.getInt("produit_id")), rs.getInt("qte"), rs.getDouble("stotal"),(new VenteDaoImp()).find(rs.getInt("vente_id")) ));
+              //  c.add(new LigneCmd(rs.getInt("id"), daoproduit.find(rs.getInt("produit_id")), rs.getInt("qte"), rs.getDouble("stotal"),daovente.find(rs.getInt("vente_id")) ));
             }
             return c;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public List<LigneCmd> findAll(int v) {
-        ArrayList<LigneCmd> lcmds=new ArrayList<>();
-        String sql="select *from lcmds where vente_id="+v;
-        try {
-            rs=stm.executeQuery(sql);
-            while(rs.next()) {
-                lcmds.add(new LigneCmd(rs.getInt("id"),new ProduitDaoImplL().find(rs.getInt("produit_id")),rs.getInt("qte"),rs.getDouble("stotal"),new VenteDaoImp().find(v)));
-            }
-            return lcmds;
         } catch (SQLException e) {
             e.printStackTrace();
         }

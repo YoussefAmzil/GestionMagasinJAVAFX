@@ -1,6 +1,8 @@
 package Interfacesgui;
 
 import Controller.*;
+import dao.PaymentDAO;
+import dao.VenteDao;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,6 +21,7 @@ import model.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalInt;
 
 public class FormPayment {
     private BorderPane root=new BorderPane();
@@ -27,9 +30,10 @@ public class FormPayment {
     ObservableList<Payment> observableTable= FXCollections.observableArrayList();
     ObservableList<PaymentT> payments = FXCollections.observableArrayList(PaymentT.values());
     List<Payment> paymentsdb=new ArrayList<>();
-    double total=0.0;
+    double total=0.0,resteamount=0.0;
     Alert alert = new Alert(Alert.AlertType.ERROR);
-
+    Vente currentvente;
+    int maxId;
 
     GridPane pane = new GridPane();
 
@@ -48,7 +52,7 @@ public class FormPayment {
     TextField total_venteinput = new TextField();
     Label totalht=new Label("Total Paye: ");
     Label totalhtprice=new Label(this.total +"DH");
-    TextField paymentamount=new TextField();
+    TextField paymentamount=new TextField("0");
     Label reste = new Label("Reste: ");
     TextField resteinput = new TextField();
 
@@ -83,11 +87,11 @@ public class FormPayment {
         save.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
 
         tablelignecmd.setMaxWidth(550);
+        dateventeinput.setEditable(false);
+        total_venteinput.setEditable(false);
+        resteinput.setEditable(false);
+        editbtn.setDisable(true);
 
-
-        dateventeinput.setDisable(true);
-        total_venteinput.setDisable(true);
-        resteinput.setDisable(true);
 
         pane.setPadding(new Insets(10));
         pane.setHgap(10);
@@ -142,16 +146,74 @@ public class FormPayment {
 
         //on add button
         idventeinput.setOnMouseClicked(event -> {
-            if (!this.idventeinput.getText().isEmpty()){
-                System.out.println("in");
-                try {
-                    int id=Integer.parseInt(idventeinput.getText());
-                    Vente v=(new VenteDaoImp()).find(id);
-                    System.out.println(v.getTotal());
-                }catch(Exception e){
+            try {
+                currentvente= new VenteDaoImp().find(Integer.parseInt(this.idventeinput.getText()));
+                this.dateventeinput.setText(currentvente.getDate());
+                this.total_venteinput.setText(currentvente.getTotal()+"");
+                List<Payment> z=new PaymentDaoImp().getpayments(currentvente);
+                //this.paymentsdb=z;
+                this.observableTable.setAll(z);
+                 total=(z).stream()
+                        .mapToDouble(x -> x.getMontant())
+                        .sum();
+                maxId=(paymentsdb).stream()
+                        .mapToInt(x -> x.getId())
+                        .max().getAsInt();
+                 resteamount=currentvente.getTotal()-total;
+                 this.resteinput.setText(resteamount+"");
+                 this.totalhtprice.setText(total+"DHs");
 
-                }
+            } catch (NumberFormatException e) {
+                alert.setContentText("Essayer de donner un nombre dans ce champs");
+                alert.show();
             }
+        });
+
+        addbtn.setOnMouseClicked(ev->{
+            if (this.paymentbox.getValue()==null || this.paymentamount.getText().isEmpty()){
+                alert.setContentText("essayez de remplir tous les champs !!!");
+                alert.show();
+            }else if(Double.parseDouble(this.paymentamount.getText()) > this.resteamount || Double.parseDouble(this.paymentamount.getText())<=0){
+                alert.setContentText("le montant doit etre inferieur ou egale a reste !!!");
+                alert.show();
+            }else{
+                Payment np=new Payment(currentvente,Double.parseDouble(paymentamount.getText()),paymentbox.getValue());
+                maxId++;
+                np.setId(maxId);
+                this.total+=np.getMontant();
+                this.resteamount-=np.getMontant();
+                this.resteinput.setText(resteamount+"");
+                this.totalhtprice.setText(total+"DHs");
+                this.observableTable.add(np);
+                this.paymentsdb.add(np);
+            }
+        });
+        deletebtn.setOnMouseClicked(v->{
+            Payment np=this.tablelignecmd.getSelectionModel().getSelectedItem();
+            maxId--;
+            this.total-=np.getMontant();
+            this.resteamount+=np.getMontant();
+            this.resteinput.setText(resteamount+"");
+            this.totalhtprice.setText(total+"DHs");
+            this.paymentsdb.remove(np);
+            this.observableTable.setAll(paymentsdb);
+        });
+
+        save.setOnMouseClicked(ev->{
+            if(!this.paymentsdb.isEmpty()) {
+                PaymentDAO daopayment = new PaymentDaoImp();
+                for (Payment pi : this.paymentsdb) {
+                    daopayment.create(pi);
+                }
+            }else{
+                alert.setContentText("Ajouter un element au moins ");
+                alert.show();
+            }
+
+        });
+        clear.setOnMouseClicked(v->{
+            this.paymentbox=null;
+            this.paymentamount.setText("0");
         });
 
     }
@@ -170,7 +232,7 @@ public class FormPayment {
 
         TableColumn<Payment, String> datetab=new TableColumn<>("date");
         datetab.setCellValueFactory(new PropertyValueFactory<>("date"));
-        datetab.setPrefWidth(80);
+        datetab.setPrefWidth(100);
 
         tablelignecmd.getColumns().addAll(idpayment,montant,type,datetab);
         observableTable.setAll(paymentsdb);
