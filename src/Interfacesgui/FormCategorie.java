@@ -1,5 +1,6 @@
 package Interfacesgui;
 
+import Controller.AllDaoImpl;
 import Controller.CategorieDaoImpl;
 import Controller.ProduitDaoImplL;
 import dao.CategorieDAO;
@@ -18,6 +19,8 @@ import javafx.scene.paint.Color;
 import model.Categorie;
 import model.Produit;
 
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 public class FormCategorie {
@@ -26,20 +29,21 @@ public class FormCategorie {
     TableView<Categorie> tablecategorie=new TableView<>();
     ObservableList<Categorie> observableTable= FXCollections.observableArrayList();
     GridPane pane = new GridPane();
+    Alert alert = new Alert(Alert.AlertType.ERROR);
 
     CategorieDAO pdao=new CategorieDaoImpl();
     List<Categorie> categories=pdao.findAll();
 
-    Button addbtn=new Button("ajouter");
-    Button editbtn=new Button("modifier");
-    Button deletebtn=new Button("supprimer");
-    Button clear=new Button("clear");
+    Button addbtn=new Button("");
+    Button editbtn=new Button("");
+    Button deletebtn=new Button("");
+    Button clear=new Button("");
 
     Label designationlabel = new Label("Label");
     TextField designationinput = new TextField();
 
     private void initelements(){
-        Label title=new Label("gestion des Categories");
+        Label title=new Label("GESTION DE CATEGORIE");
         title.setStyle(" -fx-padding:7px;");
         title.setStyle("-fx-font-size:25px;");
         title.setTextFill(Color.WHITE);
@@ -50,12 +54,20 @@ public class FormCategorie {
         titletop.setPadding(new Insets(20));
         titletop.setStyle("-fx-background-color: black;");
 
-        addbtn.setMinSize(100,30);
-        deletebtn.setMinSize(100,30);
-        editbtn.setMinSize(100,30);
-        clear.setMinSize(100,30);
+        addbtn.setStyle("-fx-background-color: #69779b;-fx-min-width: 100;-fx-min-height: 50;");
+        addbtn.setGraphic(new Label("AJOUTER"));
+        addbtn.getGraphic().setStyle("-fx-text-fill: #f0ece2;");
+        deletebtn.setStyle("-fx-background-color: #69779b;-fx-min-width: 100;-fx-min-height: 50;");
+        deletebtn.setGraphic(new Label("SUPPRIMER"));
+        deletebtn.getGraphic().setStyle("-fx-text-fill: #f0ece2;");
+        editbtn.setStyle("-fx-background-color: #69779b;-fx-min-width: 100;-fx-min-height: 50;");
+        editbtn.setGraphic(new Label("MODIFIER"));
+        editbtn.getGraphic().setStyle("-fx-text-fill: #f0ece2;");
+        clear.setStyle("-fx-background-color: #69779b;-fx-min-width: 100;-fx-min-height: 50;");
+        clear.setGraphic(new Label("INIT"));
+        clear.getGraphic().setStyle("-fx-text-fill: #f0ece2;");
 
-        pane.setPadding(new Insets(20));
+        pane.setPadding(new Insets(0,20,20,20));
         pane.setHgap(15);
         pane.setVgap(15);
         pane.add(designationlabel, 0, 1);
@@ -70,6 +82,7 @@ public class FormCategorie {
         initTableProduct();
         VBox view=new VBox();
         TextField search= new TextField();
+        search.setStyle("-fx-border-color: #69779b");
         VBox.setMargin(view,new Insets(60,0,0,0));
         VBox.setMargin(search,new Insets(10,0,5,0));
         view.getChildren().add(search);
@@ -95,12 +108,18 @@ public class FormCategorie {
             Categorie c=new Categorie(pdao.getLastId(),designationinput.getText());
             pdao.create(c);
             this.observableTable.add(c);
-
         });
         deletebtn.setOnAction(event -> {
             Categorie t=tablecategorie.getSelectionModel().getSelectedItem();
-            pdao.delete(t);
-            this.observableTable.remove(t);
+            try {
+                pdao.delete(t);
+                this.observableTable.remove(t);
+            }catch (Exception e) {
+                alert.setContentText(e.getMessage());
+                alert.setTitle("impossible !!!");
+                alert.show();
+            }
+
         });
         editbtn.setOnAction(event -> {
             Categorie t=tablecategorie.getSelectionModel().getSelectedItem();
@@ -133,6 +152,7 @@ public class FormCategorie {
     }
 
     private void initTableProduct(){
+        tablecategorie.setStyle("-fx-border-color: #69779b");
         TableColumn<Categorie, Integer> categorieIdColon=new TableColumn<>("Id");
         categorieIdColon.setCellValueFactory(new PropertyValueFactory<>("id"));
         categorieIdColon.setPrefWidth(50);

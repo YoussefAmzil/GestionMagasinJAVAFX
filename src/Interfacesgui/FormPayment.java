@@ -37,11 +37,11 @@ public class FormPayment {
 
     GridPane pane = new GridPane();
 
-    Button addbtn=new Button("ajouter");
-    Button editbtn=new Button("modifier");
-    Button deletebtn=new Button("supprimer");
-    Button clear=new Button("clear");
-    Button  save= new Button("enregistrer");
+    Button addbtn=new Button("");
+    Button editbtn=new Button("");
+    Button deletebtn=new Button("");
+    Button clear=new Button("");
+    Button  save= new Button("");
 
 
     Label id_vente = new Label(" Id Vente");
@@ -55,6 +55,7 @@ public class FormPayment {
     TextField paymentamount=new TextField("0");
     Label reste = new Label("Reste: ");
     TextField resteinput = new TextField();
+    Label clientname=new Label();
 
     ChoiceBox<PaymentT> paymentbox = new ChoiceBox<>(payments);
 
@@ -63,7 +64,7 @@ public class FormPayment {
     //private void initpanes(){ scene=new Scene(root); }
 
     private void initelements(){
-        Label title=new Label("gestion de payment");
+        Label title=new Label("GESTION DE PAYMENT");
         title.setStyle(" -fx-padding:7px;");
         title.setStyle("-fx-font-size:25px;");
         title.setTextFill(Color.WHITE);
@@ -72,6 +73,7 @@ public class FormPayment {
         totalht.setStyle("-fx-font-size:20px;");
         totalhtprice.setStyle(" -fx-padding:7px;");
         totalhtprice.setStyle("-fx-font-size:20px;");
+        clientname.setStyle("-fx-font-size:20px;");
 
         HBox titletop=new HBox();
         titletop.setAlignment(Pos.CENTER);
@@ -79,12 +81,23 @@ public class FormPayment {
         titletop.setPadding(new Insets(20));
         titletop.setStyle("-fx-background-color: black;");
 
-        addbtn.setMinSize(100,30);
-        deletebtn.setMinSize(100,30);
-        editbtn.setMinSize(100,30);
-        clear.setMinSize(100,30);
-        save.setMinSize(200,30);
-        save.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
+         addbtn.setStyle("-fx-background-color: #69779b;-fx-min-width: 100;-fx-min-height: 50;");
+        addbtn.setGraphic(new Label("AJOUTER"));
+        addbtn.getGraphic().setStyle("-fx-text-fill: #f0ece2;");
+        deletebtn.setStyle("-fx-background-color: #69779b;-fx-min-width: 100;-fx-min-height: 50;");
+        deletebtn.setGraphic(new Label("SUPPRIMER"));
+        deletebtn.getGraphic().setStyle("-fx-text-fill: #f0ece2;");
+        editbtn.setStyle("-fx-background-color: #69779b;-fx-min-width: 100;-fx-min-height: 50;");
+        editbtn.setGraphic(new Label("MODIFIER"));
+        editbtn.getGraphic().setStyle("-fx-text-fill: #f0ece2;");
+        clear.setStyle("-fx-background-color: #69779b;-fx-min-width: 100;-fx-min-height: 50;");
+        clear.setGraphic(new Label("INIT"));
+        clear.getGraphic().setStyle("-fx-text-fill: #f0ece2;");
+        save.setStyle("-fx-background-color: #69779b;-fx-min-width: 180;-fx-min-height: 50;");
+        save.setGraphic(new Label("ENREGISTRER"));
+        save.getGraphic().setStyle("-fx-border-color: white;");
+        save.getGraphic().setStyle("-fx-text-fill: #f0ece2;");
+
 
         tablelignecmd.setMaxWidth(550);
         dateventeinput.setEditable(false);
@@ -122,6 +135,9 @@ public class FormPayment {
         totalbox.getChildren().add(totalht);
         totalbox.getChildren().add(totalhtprice);
         view.getChildren().add(totalbox);
+        view.getChildren().add(clientname);
+
+
 
 
         HBox footer=new HBox();
@@ -156,12 +172,13 @@ public class FormPayment {
                  total=(z).stream()
                         .mapToDouble(x -> x.getMontant())
                         .sum();
-                maxId=(paymentsdb).stream()
+                maxId=(observableTable).stream()
                         .mapToInt(x -> x.getId())
                         .max().getAsInt();
                  resteamount=currentvente.getTotal()-total;
                  this.resteinput.setText(resteamount+"");
                  this.totalhtprice.setText(total+"DHs");
+                 this.clientname.setText("Client : "+this.currentvente.getClient().getNom()+" "+this.currentvente.getClient().getPrenom());
 
             } catch (NumberFormatException e) {
                 alert.setContentText("Essayer de donner un nombre dans ce champs");
@@ -190,13 +207,14 @@ public class FormPayment {
         });
         deletebtn.setOnMouseClicked(v->{
             Payment np=this.tablelignecmd.getSelectionModel().getSelectedItem();
+            System.out.println(np.getMontant());
             maxId--;
             this.total-=np.getMontant();
             this.resteamount+=np.getMontant();
             this.resteinput.setText(resteamount+"");
             this.totalhtprice.setText(total+"DHs");
             this.paymentsdb.remove(np);
-            this.observableTable.setAll(paymentsdb);
+            this.observableTable.remove(np);
         });
 
         save.setOnMouseClicked(ev->{
@@ -205,6 +223,10 @@ public class FormPayment {
                 for (Payment pi : this.paymentsdb) {
                     daopayment.create(pi);
                 }
+                this.paymentsdb.clear();
+                alert.setAlertType(Alert.AlertType.INFORMATION);
+                alert.setContentText("le paiment est ben enregistré !");
+                alert.show();
             }else{
                 alert.setContentText("Ajouter un element au moins ");
                 alert.show();
@@ -218,6 +240,7 @@ public class FormPayment {
 
     }
     private void initTableProduct(){
+         tablelignecmd.setStyle("-fx-border-color: #69779b");
         TableColumn<Payment, Integer> idpayment=new TableColumn<>("id payment");
         idpayment.setCellValueFactory(new PropertyValueFactory<>("id"));
         idpayment.setPrefWidth(100);

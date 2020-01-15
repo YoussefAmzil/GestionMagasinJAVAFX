@@ -14,7 +14,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProduitDaoImplL  extends AllDaoImpl implements ProduitDAO {
+public class ProduitDaoImplL implements ProduitDAO {
     Connection cnx;
     Statement stm=null;
     ResultSet rs=null;
@@ -59,13 +59,13 @@ public class ProduitDaoImplL  extends AllDaoImpl implements ProduitDAO {
     }
 
     @Override
-    public void delete(Produit p) {
+    public void delete(Produit p) throws SQLException {
         String sql="delete from produits where id="+p.getId();
         try {
             if (stm.execute(sql))
                 System.out.println("produit est supprimé");
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw e;
         }
 
     }

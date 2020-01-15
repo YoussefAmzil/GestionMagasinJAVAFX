@@ -56,12 +56,13 @@ public class CategorieDaoImpl implements CategorieDAO {
     }
 
     @Override
-    public void delete(Categorie c) {
+    public void delete(Categorie c) throws  Exception {
         String sql = "delete from categories where id=" + c.getId();
         try {
             if (stm.execute(sql)) System.out.println("categorie deleted");
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            throw e;
         }
     }
 

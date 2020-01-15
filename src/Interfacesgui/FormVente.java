@@ -30,17 +30,16 @@ public class FormVente {
     double total=0.0;
     Alert alert = new Alert(Alert.AlertType.ERROR);
 
-
     GridPane pane = new GridPane();
     List<LigneCmd> lcmds=new ArrayList<>();
     Client cv=new Client();
-    List<Client> clients =new ClientDaoImpl().findAll();
+    List<Client> clients;
 
-    Button addbtn=new Button("ajouter");
-    Button editbtn=new Button("modifier");
-    Button deletebtn=new Button("supprimer");
-    Button clear=new Button("clear");
-    Button  save= new Button("enregistrer");
+    Button addbtn=new Button("");
+    Button editbtn=new Button("");
+    Button deletebtn=new Button("");
+    Button clear=new Button("");
+    Button  save= new Button("");
 
 
     Label nomclient = new Label(" nom Client");
@@ -66,7 +65,7 @@ public class FormVente {
     //private void initpanes(){ scene=new Scene(root); }
 
     private void initelements(){
-        Label title=new Label("gestion des commande");
+        Label title=new Label("GETION DE VENTE");
         title.setStyle(" -fx-padding:7px;");
         title.setStyle("-fx-font-size:25px;");
         title.setTextFill(Color.WHITE);
@@ -86,12 +85,22 @@ public class FormVente {
         titletop.setPadding(new Insets(20));
         titletop.setStyle("-fx-background-color: black;");
 
-        addbtn.setMinSize(100,30);
-        deletebtn.setMinSize(100,30);
-        editbtn.setMinSize(100,30);
-        clear.setMinSize(100,30);
-        save.setMinSize(200,30);
-        save.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
+         addbtn.setStyle("-fx-background-color: #69779b;-fx-min-width: 100;-fx-min-height: 30;");
+        addbtn.setGraphic(new Label("AJOUTER"));
+        addbtn.getGraphic().setStyle("-fx-text-fill: #f0ece2;");
+        deletebtn.setStyle("-fx-background-color: #69779b;-fx-min-width: 100;-fx-min-height: 30;");
+        deletebtn.setGraphic(new Label("SUPPRIMER"));
+        deletebtn.getGraphic().setStyle("-fx-text-fill: #f0ece2;");
+        editbtn.setStyle("-fx-background-color: #69779b;-fx-min-width: 100;-fx-min-height: 30;");
+        editbtn.setGraphic(new Label("MODIFIER"));
+        editbtn.getGraphic().setStyle("-fx-text-fill: #f0ece2;");
+        clear.setStyle("-fx-background-color: #69779b;-fx-min-width: 100;-fx-min-height: 30;");
+        clear.setGraphic(new Label("INIT"));
+        clear.getGraphic().setStyle("-fx-text-fill: #f0ece2;");
+        save.setStyle("-fx-background-color: #69779b;-fx-min-width: 180;-fx-min-height: 30;");
+        save.setGraphic(new Label("ENREGISTRER"));
+        save.getGraphic().setStyle("-fx-border-color: white;");
+        save.getGraphic().setStyle("-fx-text-fill: #f0ece2;");
 
 
 
@@ -213,6 +222,7 @@ public class FormVente {
         //get client with his name
         teleinp.setOnKeyTyped(ev->{
             if(!this.teleinp.getText().isEmpty()){
+                this.clients=new ClientDaoImpl().findAll();
                 for (Client i:this.clients
                      ) {
                     if(i.getTelephone().contains(teleinp.getText())){
@@ -241,10 +251,16 @@ public class FormVente {
                 pa.setMontant(Double.parseDouble(this.paymentamount.getText()));
                 v=new VenteDaoImp().create(v);
                 new PaymentDaoImp().create(pa);
+                System.out.println(v.getId());
+                alert.setAlertType(Alert.AlertType.INFORMATION);
+                 alert.setHeaderText("success");
+                alert.setContentText("la vente avec ID : "+v.getId()+" est bien enregistré !");
+                alert.show();
             }
         });
     }
     private void initTableProduct(){
+        tablelignecmd.setStyle("-fx-border-color: #69779b");
         TableColumn<LigneCmd, Produit> produitIdColon=new TableColumn<>("produit");
         produitIdColon.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getP()));
         produitIdColon.setPrefWidth(80);

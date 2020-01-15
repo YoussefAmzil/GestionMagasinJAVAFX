@@ -1,31 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7ea3c46-ee9a-4967-b2df-891bf708ec1d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/AllDaoImpl.java" afterDir="false" />
+    <list default="true" id="f7ea3c46-ee9a-4967-b2df-891bf708ec1d" name="Default Changelist" comment="adding payment functionnalities and edit order and preOrder classes">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Interfacesgui/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Controller/CategorieDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Controller/CategorieDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Controller/ClientDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Controller/ClientDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Controller/LigneCmdDaoIml.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Controller/LigneCmdDaoIml.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Controller/ProduitDaoImplL.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Controller/ProduitDaoImplL.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Controller/VenteDaoImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Controller/VenteDaoImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Interfacesgui/FormCategorie.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfacesgui/FormCategorie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Interfacesgui/FormClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfacesgui/FormClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Interfacesgui/FormProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfacesgui/FormProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Interfacesgui/FormVente.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfacesgui/FormVente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Interfacesgui/InitGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfacesgui/InitGui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Test/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Test/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dao/CategorieDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/dao/CategorieDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dao/ClientDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/dao/ClientDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dao/LigneCmdDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/dao/LigneCmdDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dao/VenteDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/dao/VenteDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/db/DataConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/db/DataConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/LigneCmd.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/LigneCmd.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/Produit.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/Produit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/Vente.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/Vente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/Controller/CategorieDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/Controller/CategorieDaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/Controller/ClientDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/Controller/ClientDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/Controller/LigneCmdDaoIml.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/Controller/LigneCmdDaoIml.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/Controller/ProduitDaoImplL.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/Controller/ProduitDaoImplL.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/Controller/VenteDaoImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/Controller/VenteDaoImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/Interfacesgui/FormCategorie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/Interfacesgui/FormCategorie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/Interfacesgui/FormClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/Interfacesgui/FormClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/Interfacesgui/FormProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/Interfacesgui/FormProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/Interfacesgui/FormVente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/Interfacesgui/FormVente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/Interfacesgui/InitGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/Interfacesgui/InitGui.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/dao/LigneCmdDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/dao/LigneCmdDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/db/DataConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/db/DataConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/Test/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/Test/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/dao/CategorieDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/dao/CategorieDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/dao/ClientDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/dao/ClientDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/dao/ProduitDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/dao/ProduitDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/dao/VenteDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/dao/VenteDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/model/LigneCmd.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/model/LigneCmd.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/model/Vente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GestionMagasinV2/model/Vente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GestionMagasinV2/style.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/CategorieDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CategorieDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ClientDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClientDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/LigneCmdDaoIml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LigneCmdDaoIml.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PaymentDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PaymentDaoImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ProduitDaoImplL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProduitDaoImplL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/VenteDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VenteDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfacesgui/FormCategorie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfacesgui/FormCategorie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfacesgui/FormClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfacesgui/FormClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interfacesgui/FormPayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfacesgui/FormPayment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfacesgui/FormProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfacesgui/FormProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfacesgui/FormVente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfacesgui/FormVente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfacesgui/InitGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfacesgui/InitGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/LigneCmdDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/LigneCmdDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/VenteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/VenteDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/DataConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/DataConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/LigneCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/LigneCmd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Vente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Vente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/CategorieDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/CategorieDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/ClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ClientDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/ProduitDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ProduitDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/PaymentT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/PaymentT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style.css" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -76,37 +107,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Interfacesgui/FormPayment.java">
+        <entry file="file://$PROJECT_DIR$/src/Interfacesgui/InitGui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="92" column="32" lean-forward="true" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Interfacesgui/FormVente.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="188" column="46" lean-forward="true" selection-start-line="188" selection-start-column="46" selection-end-line="188" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/Payment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/PaymentDaoImp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-349">
-              <caret line="39" column="49" lean-forward="true" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
+            <state relative-caret-position="136">
+              <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -116,8 +120,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -132,6 +136,8 @@
       <find>date</find>
       <find>total</find>
       <find>paymentamount</find>
+      <find>lcmds</find>
+      <find>pros</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,24 +150,36 @@
         <option value="$PROJECT_DIR$/src/dao/ClientDAO.java" />
         <option value="$PROJECT_DIR$/src/model/Client.java" />
         <option value="$PROJECT_DIR$/src/dao/PaymentDAO.java" />
-        <option value="$PROJECT_DIR$/src/model/PaymentT.java" />
-        <option value="$PROJECT_DIR$/src/Interfacesgui/FormVente.java" />
-        <option value="$PROJECT_DIR$/src/Interfacesgui/InitGui.java" />
-        <option value="$PROJECT_DIR$/src/Controller/CategorieDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/db/DataConnection.java" />
-        <option value="$PROJECT_DIR$/src/Controller/ClientDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/Controller/ProduitDaoImplL.java" />
         <option value="$PROJECT_DIR$/src/Controller/AllDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/dao/LigneCmdDao.java" />
         <option value="$PROJECT_DIR$/src/dao/VenteDao.java" />
-        <option value="$PROJECT_DIR$/src/Controller/PaymentDaoImp.java" />
         <option value="$PROJECT_DIR$/src/Controller/LigneCmdDaoIml.java" />
         <option value="$PROJECT_DIR$/src/model/LigneCmd.java" />
         <option value="$PROJECT_DIR$/src/model/Vente.java" />
-        <option value="$PROJECT_DIR$/src/Test/Main.java" />
         <option value="$PROJECT_DIR$/src/Controller/VenteDaoImp.java" />
         <option value="$PROJECT_DIR$/src/model/Payment.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/ad380371-c715-4583-8a8e-a15962883c5d/console.sql" />
+        <option value="$PROJECT_DIR$/src/dao/PaymentType.java" />
+        <option value="$PROJECT_DIR$/src/model/PaymentType.java" />
+        <option value="$PROJECT_DIR$/src/model/Espece.java" />
+        <option value="$PROJECT_DIR$/src/model/Carte.java" />
+        <option value="$PROJECT_DIR$/src/model/Cheque.java" />
+        <option value="$PROJECT_DIR$/src/Controller/PaymentTypeDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/dao/PaymentTypeDao.java" />
+        <option value="$PROJECT_DIR$/src/Controller/PaymentDaoImp.java" />
+        <option value="$PROJECT_DIR$/src/model/PaymentT.java" />
+        <option value="$PROJECT_DIR$/src/Test/Main.java" />
+        <option value="$PROJECT_DIR$/src/Controller/CategorieDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/style.css" />
+        <option value="$PROJECT_DIR$/src/Interfacesgui/FormCategorie.java" />
         <option value="$PROJECT_DIR$/src/Interfacesgui/FormPayment.java" />
+        <option value="$PROJECT_DIR$/src/Interfacesgui/FormProduct.java" />
+        <option value="$PROJECT_DIR$/src/Controller/ProduitDaoImplL.java" />
+        <option value="$PROJECT_DIR$/src/Controller/ClientDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/Interfacesgui/FormClient.java" />
+        <option value="$PROJECT_DIR$/src/Interfacesgui/FormVente.java" />
+        <option value="$PROJECT_DIR$/src/Interfacesgui/InitGui.java" />
       </list>
     </option>
   </component>
@@ -179,6 +197,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -197,17 +216,10 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Interfacesgui" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="GestionMagasinV2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GestionMagasinV2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -227,10 +239,15 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Electro Fatal\JAVA2019\GestionMagasinV2\src\Interfacesgui" />
+    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
@@ -306,7 +323,25 @@
       <workItem from="1576942466581" duration="92000" />
       <workItem from="1576948370731" duration="9622000" />
       <workItem from="1577015115793" duration="10825000" />
-      <workItem from="1577046083183" duration="12651000" />
+      <workItem from="1577046083183" duration="14928000" />
+      <workItem from="1577217189522" duration="3495000" />
+      <workItem from="1577298104385" duration="8000" />
+      <workItem from="1577535089836" duration="5468000" />
+      <workItem from="1577628201853" duration="41000" />
+      <workItem from="1577648190220" duration="2221000" />
+      <workItem from="1577702941427" duration="19000" />
+      <workItem from="1577802827018" duration="3732000" />
+      <workItem from="1577971542479" duration="618000" />
+      <workItem from="1578348488583" duration="6025000" />
+      <workItem from="1578940696734" duration="918000" />
+      <workItem from="1578952336520" duration="380000" />
+      <workItem from="1579001847653" duration="37000" />
+      <workItem from="1579012654672" duration="7176000" />
+      <workItem from="1579087916811" duration="1074000" />
+      <workItem from="1579097091561" duration="375000" />
+      <workItem from="1579107404282" duration="444000" />
+      <workItem from="1579113191991" duration="68000" />
+      <workItem from="1579113483895" duration="48000" />
     </task>
     <task id="LOCAL-00001" summary="Adding buying form">
       <created>1576527709570</created>
@@ -343,17 +378,24 @@
       <option name="project" value="LOCAL" />
       <updated>1577020008405</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="adding payment functionnalities and edit order and preOrder classes">
+      <created>1577116252928</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1577116252928</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55728000" />
+    <option name="totallyTimeSpent" value="90152000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.18657719" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.19664429" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -361,8 +403,8 @@
       <window_info id="Favorites" order="5" sideWeight="0.50141644" side_tool="true" weight="0.18389262" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21671388" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3512748" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.41218132" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -373,7 +415,7 @@
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32719547" />
       <window_info anchor="bottom" id="Database Changes" order="12" weight="0.3286119" />
-      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32921812" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -395,7 +437,8 @@
     <MESSAGE value="edit quantity and price adter adding the same product to the same order" />
     <MESSAGE value="adding payment form and order form  to db" />
     <MESSAGE value="adding payment UI and DAO" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding payment UI and DAO" />
+    <MESSAGE value="adding payment functionnalities and edit order and preOrder classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding payment functionnalities and edit order and preOrder classes" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/GestionMagasinV2$InitGui.ic" NAME="InitGui Coverage Results" MODIFIED="1576526472286" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -403,94 +446,10 @@
     </SUITE>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ad380371-c715-4583-8a8e-a15962883c5d/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/CategorieDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interfacesgui/FormProduct.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="87" column="24" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/javafx-src.zip!/com/sun/javafx/event/CompositeEventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
           <caret line="89" column="55" lean-forward="true" selection-start-line="89" selection-start-column="55" selection-end-line="89" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="27" column="8" selection-start-line="26" selection-start-column="20" selection-end-line="28" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interfacesgui/FormClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2764">
-          <caret line="28" column="35" lean-forward="true" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Produit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="66" column="13" lean-forward="true" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
-          <folding>
-            <element signature="e#974#975#0" expanded="true" />
-            <element signature="e#999#1000#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/PaymentDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/PaymentT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interfacesgui/InitGui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="29" column="77" selection-start-line="29" selection-start-column="77" selection-end-line="29" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/ClientDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/db/DataConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="19" column="61" lean-forward="true" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
-          <folding>
-            <element signature="e#833#834#0" expanded="true" />
-            <element signature="e#857#858#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -504,29 +463,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/CategorieDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="30" column="35" lean-forward="true" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ClientDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://ad380371-c715-4583-8a8e-a15962883c5d/schema/magasinjava/table/produits">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="c126fa60-2fb8-4d31-a868-af733add6655">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://ad380371-c715-4583-8a8e-a15962883c5d/schema/magasinjava/table/produits" />
     <entry file="file://$PROJECT_DIR$/src/Controller/AllDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -541,17 +478,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ProduitDaoImplL.java">
+    <entry file="das://ad380371-c715-4583-8a8e-a15962883c5d/schema/magasinjava/table/ventes" />
+    <entry file="das://ad380371-c715-4583-8a8e-a15962883c5d/schema/magasinjava/table/lcmds" />
+    <entry file="das://ad380371-c715-4583-8a8e-a15962883c5d/schema/magasinjava/table/payments" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ad380371-c715-4583-8a8e-a15962883c5d/console_1.sql" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ad380371-c715-4583-8a8e-a15962883c5d/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+        <state>
+          <caret column="20" lean-forward="true" selection-start-column="20" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/LigneCmdDao.java">
+    <entry file="file://$PROJECT_DIR$/src/model/Produit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+        <state relative-caret-position="1092">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#974#975#0" expanded="true" />
+            <element signature="e#999#1000#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/db/DataConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="756">
+          <caret line="27" lean-forward="true" selection-start-line="26" selection-start-column="20" selection-end-line="28" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/ClientDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/LigneCmd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -562,99 +535,174 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/LigneCmdDaoIml.java">
+    <entry file="file://$PROJECT_DIR$/src/model/Vente.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="224">
+          <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="das://ad380371-c715-4583-8a8e-a15962883c5d/schema/magasinjava/table/payments">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="349536d8-8e9a-463b-8121-641059ded733">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/LigneCmd.java">
+    <entry file="file://$PROJECT_DIR$/src/dao/ProduitDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
+        <state relative-caret-position="308">
           <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="das://ad380371-c715-4583-8a8e-a15962883c5d/schema/magasinjava/table/ventes">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="349536d8-8e9a-463b-8121-641059ded733">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://ad380371-c715-4583-8a8e-a15962883c5d/schema/magasinjava/table/lcmds">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="349536d8-8e9a-463b-8121-641059ded733">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Vente.java">
+    <entry file="file://$PROJECT_DIR$/src/model/Espece.java" />
+    <entry file="file://$PROJECT_DIR$/src/model/Carte.java" />
+    <entry file="file://$PROJECT_DIR$/src/model/Cheque.java" />
+    <entry file="file://$PROJECT_DIR$/src/dao/PaymentDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="31" column="65" selection-start-line="31" selection-start-column="65" selection-end-line="31" selection-end-column="65" />
+        <state relative-caret-position="224">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="9" selection-end-column="34" />
           <folding>
-            <element signature="e#1019#1020#0" expanded="true" />
-            <element signature="e#1046#1047#0" expanded="true" />
-            <element signature="e#1086#1087#0" expanded="true" />
-            <element signature="e#1118#1119#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/PaymentTypeDao.java" />
+    <entry file="file://$PROJECT_DIR$/src/Controller/PaymentTypeDaoImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/Controller/PaymentDaoImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="44" column="12" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/PaymentT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+          <folding>
+            <element signature="e#104#105#0" expanded="true" />
+            <element signature="e#137#138#0" expanded="true" />
+            <element signature="e#177#178#0" expanded="true" />
+            <element signature="e#213#214#0" expanded="true" />
+            <element signature="e#343#344#0" expanded="true" />
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#458#459#0" expanded="true" />
+            <element signature="e#497#498#0" expanded="true" />
+            <element signature="e#549#550#0" expanded="true" />
+            <element signature="e#597#598#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/CategorieDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/CategorieDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Test/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="23" column="48" lean-forward="true" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+        <state relative-caret-position="196">
+          <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfacesgui/style.css">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Payment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+        <state relative-caret-position="280">
+          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/PaymentDaoImp.java">
+    <entry file="file://$PROJECT_DIR$/src/model/Categorie.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-349">
-          <caret line="39" column="49" lean-forward="true" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
+        <state relative-caret-position="56">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ProduitDaoImplL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="67" column="20" lean-forward="true" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfacesgui/FormProduct.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="141" column="12" selection-start-line="141" selection-start-column="12" selection-end-line="148" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfacesgui/FormCategorie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="113" column="12" selection-start-line="113" selection-start-column="12" selection-end-line="120" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/LigneCmdDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/VenteDaoImp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-682">
-          <caret line="91" column="5" lean-forward="true" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+        <state relative-caret-position="468">
+          <caret line="116" column="16" lean-forward="true" selection-start-line="116" selection-start-column="16" selection-end-line="116" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interfacesgui/FormVente.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/LigneCmdDaoIml.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="188" column="46" lean-forward="true" selection-start-line="188" selection-start-column="46" selection-end-line="188" selection-end-column="46" />
+        <state relative-caret-position="-196">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ClientDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="58" column="20" lean-forward="true" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Interfacesgui/FormPayment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="92" column="32" lean-forward="true" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
+        <state relative-caret-position="97">
+          <caret line="242" column="20" selection-start-line="242" selection-end-line="243" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfacesgui/FormClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="163" column="43" lean-forward="true" selection-start-line="163" selection-start-column="43" selection-end-line="163" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfacesgui/FormVente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="27" column="98" selection-start-line="27" selection-start-column="98" selection-end-line="27" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfacesgui/InitGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
         </state>
       </provider>
     </entry>

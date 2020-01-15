@@ -42,6 +42,7 @@ public class PaymentDaoImp implements PaymentDAO {
             rs = stm.executeQuery(sql);
             while (rs.next()) {
                 p.add(new Payment(rs.getInt("id"),daovente.find(rs.getInt("id")),rs.getDouble("montant"), rs.getString("date"), PaymentT.valueOf(rs.getString("type"))));
+
             }
             return p;
         } catch (SQLException e) {

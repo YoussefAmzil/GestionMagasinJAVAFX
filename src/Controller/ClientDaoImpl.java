@@ -11,7 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientDaoImpl extends AllDaoImpl implements ClientDAO {
+public class ClientDaoImpl  implements ClientDAO {
     Connection cnx=null;
     Statement stm=null;
     ResultSet rs=null;
@@ -51,12 +51,12 @@ public class ClientDaoImpl extends AllDaoImpl implements ClientDAO {
     }
 
     @Override
-    public void delete(Client p) {
+    public void delete(Client p) throws SQLException {
         String sql="delete from clients where id="+p.getId();
         try {
              stm.execute(sql);
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw e;
         }
     }
 

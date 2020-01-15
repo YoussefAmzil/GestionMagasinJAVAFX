@@ -31,10 +31,10 @@ public class FormClient {
     ClientDAO pdao=new ClientDaoImpl();
     List<Client> clients=pdao.findAll();
 
-    Button addbtn=new Button("ajouter");
-    Button editbtn=new Button("modifier");
-    Button deletebtn=new Button("supprimer");
-    Button clear=new Button("clear");
+    Button addbtn=new Button();
+    Button editbtn=new Button();
+    Button deletebtn=new Button();
+    Button clear=new Button();
 
     Label nomlabel = new Label("nom");
     TextField nominput = new TextField();
@@ -47,10 +47,13 @@ public class FormClient {
 
 
     private void initelements(){
-        Label title=new Label("gestion des clients");
+        Label title=new Label("GESTION DE CLIENT");
         title.setStyle(" -fx-padding:7px;");
         title.setStyle("-fx-font-size:25px;");
         title.setTextFill(Color.WHITE);
+
+
+
 
         HBox titletop=new HBox();
         titletop.setAlignment(Pos.CENTER);
@@ -58,12 +61,22 @@ public class FormClient {
         titletop.setPadding(new Insets(20));
         titletop.setStyle("-fx-background-color: black;");
 
-        addbtn.setMinSize(100,30);
-        deletebtn.setMinSize(100,30);
-        editbtn.setMinSize(100,30);
-        clear.setMinSize(100,30);
 
-        pane.setPadding(new Insets(20));
+
+        addbtn.setStyle("-fx-background-color: #69779b;-fx-min-width: 100;-fx-min-height: 50;");
+        addbtn.setGraphic(new Label("AJOUTER"));
+        addbtn.getGraphic().setStyle("-fx-text-fill: #f0ece2;");
+        deletebtn.setStyle("-fx-background-color: #69779b;-fx-min-width: 100;-fx-min-height: 50;");
+        deletebtn.setGraphic(new Label("SUPPRIMER"));
+        deletebtn.getGraphic().setStyle("-fx-text-fill: #f0ece2;");
+        editbtn.setStyle("-fx-background-color: #69779b;-fx-min-width: 100;-fx-min-height: 50;");
+        editbtn.setGraphic(new Label("MODIFIER"));
+        editbtn.getGraphic().setStyle("-fx-text-fill: #f0ece2;");
+        clear.setStyle("-fx-background-color: #69779b;-fx-min-width: 100;-fx-min-height: 50;");
+        clear.setGraphic(new Label("INIT"));
+        clear.getGraphic().setStyle("-fx-text-fill: #f0ece2;");
+
+        pane.setPadding(new Insets(0,20,20,20));
         pane.setHgap(15);
         pane.setVgap(15);
         pane.add(nomlabel, 0, 1);
@@ -82,6 +95,7 @@ public class FormClient {
         initTableProduct();
         VBox view=new VBox();
         TextField search= new TextField();
+        search.setStyle("-fx-border-color: #69779b");
         VBox.setMargin(view,new Insets(60,0,0,0));
         VBox.setMargin(search,new Insets(10,0,5,0));
         view.getChildren().add(search);
@@ -110,8 +124,15 @@ public class FormClient {
         });
         deletebtn.setOnAction(event -> {
             Client t=tableclient.getSelectionModel().getSelectedItem();
-            pdao.delete(t);
-            this.observableTable.remove(t);
+           try {
+                pdao.delete(t);
+                this.observableTable.remove(t);
+            }catch (Exception e) {
+               Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText(e.getMessage());
+                alert.setTitle("impossible !!!");
+                alert.show();
+            }
         });
         editbtn.setOnAction(event -> {
             Client t=tableclient.getSelectionModel().getSelectedItem();
@@ -124,11 +145,16 @@ public class FormClient {
         });
         //tableView selection
         tableclient.setOnMouseClicked(event -> {
-            Client t=tableclient.getSelectionModel().getSelectedItem();
-            this.nominput.setText(t.getNom());
-            this.prenominput.setText(t.getPrenom());
-            this.telephoneinput.setText(t.getTelephone());
-            this.cityinput.setText(t.getCity());
+            try{
+                Client t=tableclient.getSelectionModel().getSelectedItem();
+                this.nominput.setText(t.getNom());
+                this.prenominput.setText(t.getPrenom());
+                this.telephoneinput.setText(t.getTelephone());
+                this.cityinput.setText(t.getCity());
+            }catch(Exception e){
+                e.getMessage();
+            }
+
         });
         search.setOnKeyPressed(event -> {
             if (!search.getText().isEmpty()) {
@@ -149,6 +175,7 @@ public class FormClient {
 
     }
     private void initTableProduct(){
+        tableclient.setStyle("-fx-border-color: #69779b");
         TableColumn<Client, Integer> clientIdColon=new TableColumn<>("Id");
         clientIdColon.setCellValueFactory(new PropertyValueFactory<>("id"));
         clientIdColon.setPrefWidth(50);
